@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { CoinList } from "./components/coinList";
-// import { Converter } from "./components/converter";
-// import { Wallet } from "./components/wallet";
 import { Menu } from "./components/menu";
 
 export const App = () => {
@@ -22,28 +20,13 @@ export const App = () => {
     fetchData();
   }, []);
 
-  console.log(coins)
-
-    // if (coins.length !== 0) {
-    //   setIsLoaded(true) 
-    // } else {
-    //   setIsLoaded(false)
-    // }
-
-    // console.log('isLoaded', isLoaded)
-
-  return (
-    isLoaded ? 
+  return isLoaded ? (
     <div className="app">
       <h1 className="app-title">Crypto terminal</h1>
       <div className="app-wrapper">
         <Menu coins={coins} />
-        {/* <Converter coins={coins}/> */}
         <CoinList coins={coins} />
-        {/* <Wallet coins={coins} /> */}
-        
       </div>
     </div>
-    : null
-  );
+  ) : null;
 };
