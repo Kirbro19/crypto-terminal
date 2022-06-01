@@ -1,0 +1,135 @@
+.coin-row {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  border-bottom: 1px solid #d7d7d7;
+  width: 100%;
+  cursor: pointer
+}
+
+.coin-row:hover {
+  background-color: #252525;
+  opacity: 0.9;
+}
+
+.coin-info {
+  display: flex;
+  flex: 13;
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0;
+  width: 120px;
+}
+
+.coin-info img {
+  height: 30px;
+  width: 30px;
+}
+
+.coin-name-block {
+  display: flex;
+  /* flex: 13; */
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+@media screen and (min-width: 767px) {
+  .coin-name-block {
+    margin-left: 16px;
+  }
+}
+
+.coin-name {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  margin-right: 8px;
+  color: #eaecef;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 767px) {
+  .coin-name {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.coin-symbol {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  word-break: break-word;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #848e9c;
+  text-transform: uppercase;
+}
+
+.coin-price {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  flex: 9;
+  width: 120px;
+}
+
+@media screen and (min-width: 767px) {
+  .coin-price {
+    flex: 17;
+  }
+}
+
+.coin-change24h {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  flex: 6;
+  width: 120px;
+}
+
+.coin-change14d {
+  display: flex;
+  flex: 6;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 120px;
+}
+
+.coin-marketcap {
+  display: flex;
+  justify-content: flex-end;
+  flex: 13;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 120px;
+}
+
+.red {
+  color: #f00606;
+}
+
+.green {
+  color: #11d811;
+}
+
+.hidden {
+  display: none;
+}
