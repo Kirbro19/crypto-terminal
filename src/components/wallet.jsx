@@ -29,7 +29,7 @@ export const Wallet = (props) => {
       <div className="wallet-balance-wrapper">
         <div className="wallet-input-wrapper">
         <div className="btc-wrapper">
-          <div className="wallet-balance">BTC: {btcUsdBalance}$</div>
+          <div className="wallet-balance">BTC: {btcUsdBalance.toFixed(2)}$</div>
           <input
             className="wallet-balance-input"
             onChange={handleBtcChange}
@@ -38,7 +38,7 @@ export const Wallet = (props) => {
           />
         </div>
         <div className="eth-wrapper">
-          <div className="wallet-balance">ETH: {ethUsdBalance}$</div>
+          <div className="wallet-balance">ETH: {ethUsdBalance.toFixed(2)}$</div>
           <input
             className="wallet-balance-input"
             onChange={handleEthChange}
