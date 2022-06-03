@@ -15,8 +15,6 @@ export const Menu = (props) => {
     }
   };
 
-  console.log(isChecked);
-
   return (
     <div className="menu-container">
       {(isChecked === 'true') ? <Wallet coins={coins} /> : <Converter coins={coins} /> }

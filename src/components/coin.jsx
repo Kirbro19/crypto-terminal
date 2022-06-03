@@ -53,7 +53,7 @@ export const Coin = ({
           <p className="coin-marketcap">{marketcap.toLocaleString()}$</p>
       </div>
       <div className={isHidden}>
-        <CoinChart data={sparkline_in_7d} />
+        <CoinChart sparkline_in_7d={sparkline_in_7d} name={name}/>
       </div>
       </div>
   );

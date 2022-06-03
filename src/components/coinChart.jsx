@@ -11,8 +11,8 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-export const CoinChart = (sparkline_in_7d) => {
-  const arrPrice = sparkline_in_7d.data.price;
+export const CoinChart = ({sparkline_in_7d, name}) => {
+  const arrPrice = sparkline_in_7d.price;
   const numbers = arrPrice.map((number, i) => {
     number = i + 1;
     return number;
@@ -47,8 +47,8 @@ export const CoinChart = (sparkline_in_7d) => {
     labels,
     datasets: [
       {
-        label: "Bitcoin price",
-        data: sparkline_in_7d.data.price,
+        label: `${name} price`,
+        data: sparkline_in_7d.price,
         // borderColor: "rgb(255, 99, 132)",
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
