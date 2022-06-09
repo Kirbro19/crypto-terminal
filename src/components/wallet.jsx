@@ -9,19 +9,18 @@ export const Wallet = (props) => {
   const { coins } = props;
   const overallBalance = (btcUsdBalance + ethUsdBalance).toFixed(2);
 
-  const price = coins.map((coinPrice) => {
+  const prices = coins.map((coinPrice) => {
     return coinPrice.current_price;
   });
-  const currentPrice = [...price];
 
   const handleBtcChange = (e) => {
     setBtcBalance(e.target.value);
-    setBtcUsdBalance(e.target.value * currentPrice[0]);
+    setBtcUsdBalance(e.target.value * prices[0]);
   };
 
   const handleEthChange = (e) => {
     setEthBalance(e.target.value);
-    setEthUsdBalance(e.target.value * currentPrice[1]);
+    setEthUsdBalance(e.target.value * prices[1]);
   };
 
   return (

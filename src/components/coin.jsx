@@ -12,13 +12,13 @@ export const Coin = ({
   marketcap,
   sparkline_in_7d
 }) => {
-  const [isHidden, setIsHidden] = useState('hidden');
+  const [isHidden, setIsHidden] = useState(true);
   
   const handleChartChange = () => {
-    if (isHidden === "hidden") {
-      setIsHidden("no-hidden");
+    if (isHidden === true) {
+      setIsHidden(false);
     } else {
-      setIsHidden("hidden");
+      setIsHidden(true);
     }
   };
 
@@ -52,7 +52,7 @@ export const Coin = ({
           )}
           <p className="coin-marketcap">{marketcap.toLocaleString()}$</p>
       </div>
-      <div className={isHidden}>
+      <div className={isHidden ? 'hidden' : 'no-hidden'}>
         <CoinChart sparkline_in_7d={sparkline_in_7d} name={name}/>
       </div>
       </div>

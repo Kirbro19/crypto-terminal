@@ -4,26 +4,26 @@ import { Wallet } from "./wallet";
 import "./menu.css";
 
 export const Menu = (props) => {
-  const [isChecked, setIsChecked] = useState("false");
+  const [isChecked, setIsChecked] = useState(false);
   const { coins } = props;
 
   const handleInputChange = () => {
-    if (isChecked === "false") {
-      setIsChecked("true");
+    if (isChecked === false) {
+      setIsChecked(true);
     } else {
-      setIsChecked("false");
+      setIsChecked(false);
     }
   };
 
   return (
     <div className="menu-container">
-      {(isChecked === 'true') ? <Wallet coins={coins} /> : <Converter coins={coins} /> }
+      {isChecked ? <Wallet coins={coins} /> : <Converter coins={coins} /> }
       <div className="btn-container">
         <label className="switch btn-color-mode-switch">
           <input
             className="btn"
             type={"checkbox"}
-            value={1}
+            value={isChecked}
             onChange={handleInputChange}
           />
           <label
