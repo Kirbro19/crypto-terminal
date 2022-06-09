@@ -11,12 +11,38 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-export const CoinChart = ({sparkline_in_7d, name}) => {
+export const CoinChart = ({ sparkline_in_7d, name }) => {
   const arrPrice = sparkline_in_7d.price;
-  const numbers = arrPrice.map((number, i) => {
-    number = i + 1;
-    return number;
-  });
+  const date = new Date();
+  const hoursPerWeek = 168;
+  let time = [];
+
+  const sevenDayslabels = () => {
+    for (let i = 1; i <= arrPrice.length; i++) {
+      const el = new Date(date - 1000 * 60 * 60 * (hoursPerWeek - i));
+
+      let day = el.getDate();
+      if (day.toString().length < 2) {
+        day = `0${el.getDate()}`;
+      }
+      let month = el.getMonth() + 1;
+      if (month.toString().length < 2) {
+        month = `0${el.getMonth() + 1}`;
+      }
+      let hour = el.getHours();
+      if (hour.toString().length < 2) {
+        hour = `0${el.getHours()}`;
+      }
+      let minutes = el.getMinutes();
+      if (minutes.toString().length < 2) {
+        minutes = `0${el.getMinutes()}`;
+      }
+      time[i] = `${day}.${month} ${hour}:${minutes}`;
+    }
+    return time;
+  };
+
+  sevenDayslabels();
 
   ChartJS.register(
     CategoryScale,
@@ -41,17 +67,17 @@ export const CoinChart = ({sparkline_in_7d, name}) => {
     },
   };
 
-  const labels = [...numbers];
-
+  const labels = [...time];
   const data = {
     labels,
     datasets: [
       {
         label: `${name} price`,
         data: sparkline_in_7d.price,
-        // borderColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        // borderColor: "rgb(255, 99, 132)", // red
+        borderColor: "rgb(53, 162, 235)", // blue
+        // backgroundColor: "rgba(255, 99, 132, 0.5)", // red
+        backgroundColor: "rgb(53, 162, 235, 0.5)", // blue
       },
     ],
   };
